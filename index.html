@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Passdraw FE</title>
+  <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="pb-3 mb-4 border-bottom">
+      <h1 class="display-4 fw-bold text-body-emphasis">Registration</h1>
+      <p class="fs-5 text-muted">
+        We are thrilled you are thinking about registering for <em>dance event</em> in ThePlace on 1-3 January 2026.
+      </p>
+      <p class="fs-5 text-muted">
+        This year we are doing things a little bit differently. Instead of giving out passes
+        in order of registration, we are handing out passes randomly among all registered
+        participants.
+      </p>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#infoPanels-what"
+              aria-expanded="true" aria-controls="infoPanels-what">
+              What do I need to do?
+            </button>
+          </h2>
+          <div id="infoPanels-what" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <p>
+                <strong>You register at any point between 1-31 July 2025</strong>. The timing of your registration
+                has no influence on how likely you will get a pass. You register stress free. Followers do not
+                need to find a leader, and finding a leader will not increase your chances to get a pass.
+              </p>
+              <p>
+                You can register with a partner, which means you will only get a pass when your partner also
+                gets a pass. <strong>Registering with a partner will lower your chances to get a pass</strong>
+                compared to if you register on your own. So make sure you only register with a partner if you
+                would not enjoy our event without your partner.
+              </p>
+              <p>
+                Once your filled out the registration form, we will give you an estimate on how likely your will
+                get a pass <em>based on last years numbers</em>. You will see how adding one or more partners
+                to your registration changes your chances to get a pass. <strong>You can change your registration
+                  at any point during the registration period</strong>. Once the registration period ends, you
+                cannot adjust partners, passes or your role anymore.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#infoPanels-why" aria-expanded="false" aria-controls="infoPanels-why">
+              Why are we doing this?
+            </button>
+          </h2>
+          <div id="infoPanels-why" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <p>
+                Last years event was a huge success - thanks to you! However, with success also come some negatives:
+                Our event was sold out within minutes of opening registration. While this is happy news for the
+                health of the event, it does not align with the experience we want you to have. We want our event to
+                be a great experience, from the very start to when you fall back into bed after you return home.
+              </p>
+              <p>
+                We believe the pressure to register at a particular point in time, and the pressure for followers to
+                find a dance partner to register with, does not lead to a good experience. Since we do not want to
+                grow our event, we believe we need to change the registration procedure to make it less stressful.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#infoPanels-how" aria-expanded="false" aria-controls="infoPanels-collapseThree">
+              How does it work?
+            </button>
+          </h2>
+          <div id="infoPanels-how" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <p>
+                At the end of the registration period, we will distribute the passes we have to people that have registered
+                according to their role and the type of pass they chose.
+              </p>
+              <p>
+                Our distribution algorithm can give you a pass only if <em>all</em> of your must-have partners already
+                got a pass. It is designed in a way that adding other people as must-haves will <em>lower</em> your
+                chances to get a pass, but people putting your as a partner will not increase nor decrease your chances.
+                So there is no reason to find a partner unless you think it is important that this person is coming
+                for you to enjoy our event.
+              </p>
+              <p>
+                Giving a partner as a must-have will approximately <em>half</em> your chances to get a pass. Giving
+                two partners effectively cuts your chances in four compared to your registering without a partner.
+                If you want to know exactly how it works, you can check out our algorithm at
+                <a href="https://github.com/wchresta/passdraw">github/wchresta/passdraw</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <form class="m-0 p-0">
+        <div class="row">
+          <h1>Registration form</h1>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <div class="form-floating">
+              <input type="string" name="dancerNumber" class="form-control" placeholder="12345" aria-label="Dancer number">
+              <label for="dancerNumber">Dancer-Number</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="text" name="firstName" class="form-control" placeholder="First Name" aria-label="First name">
+              <label for="firstName">First name</label>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="form-floating">
+              <input type="text" name="lastName" class="form-control" placeholder="Last Name" aria-label="Last name">
+              <label for="lastName">Last name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <div class="form-floating">
+              <input type="email" name="email" class="form-control" placeholder="name@example.com" aria-label="Email address">
+              <label for="email">Email address</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="form-floating">
+              <select class="form-select" name="pass" aria-label="Pass">
+                <option selected>Choose your pass</option>
+                <option value="1">Full pass</option>
+                <option value="2">Party pass</option>
+              </select>
+              <label for="pass">Pass</label>
+            </div>
+          </div>
+  
+          <div class="col-6">
+            <div class="form-floating">
+              <select class="form-select" name="role" aria-label="Your role">
+                <option selected>Choose your role</option>
+                <option value="1">Leader</option>
+                <option value="2">Follower</option>
+              </select>
+              <label for="role">Role</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col mb-2">
+            <p>
+              List partners here that are absolutely necessary for you to enjoy the event.
+              You will only get a pass if <strong>all</strong> of the listed people get a pass, too.
+              Note, adding people here will <em>significantly</em> reduce your chance to get a pass!
+              You can give both leaders and followers
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Partner name"
+                aria-label="Partner name" aria-describedby="must-have-name">
+              <button class="btn btn-secondary" type="button" id="add-must-have-button">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="mustHaves" class="form-label">Your must-have partners</label>
+            <ul class="list-group" id="mustHaves">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                John Doe
+                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Jane Smith
+                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Peter Jones
+                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Save</button>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+</body>
+
+</html>
