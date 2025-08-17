@@ -1,4 +1,7 @@
 
+var mustHavesContainer = document.getElementById("must-haves-container");
+var mustHaves = document.getElementById("mustHaves");
+
 function addMustHave(name) {
     var child = document.createElement("li");
     child.className = "list-group-item d-flex justify-content-between align-items-center";
@@ -8,12 +11,26 @@ function addMustHave(name) {
         removeMustHave(child);
     };
 
-    document.getElementById("mustHaves").appendChild(child);
+    mustHaves.appendChild(child);
     calcPassProbability();
+    manageMustHaveContainerVisibility();
+}
+
+function countMustHaves() {
+    return mustHaves.querySelectorAll("li > button").length;
+}
+
+function manageMustHaveContainerVisibility() {
+    if (countMustHaves() > 0) {
+        mustHavesContainer.classList.remove("d-none");
+    } else {
+        mustHavesContainer.classList.add("d-none");
+    }
 }
 
 function removeMustHave(el) {
-    document.getElementById("mustHaves").removeChild(el);
+    mustHaves.removeChild(el);
+    manageMustHaveContainerVisibility();
     calcPassProbability();
 }
 
@@ -35,6 +52,12 @@ const lastYearStats = {
         "registrations": 210,
     },
 };
+const partnerKey = {
+    "leader:full": "follower:full",
+    "leader:party": "follower:party",
+    "follower:full": "leader:full",
+    "follower:party": "leader:party",
+};
 
 function calcPassProbability() {
     var pass = document.getElementsByName("pass")[0].value;
@@ -42,19 +65,20 @@ function calcPassProbability() {
     var rolePass = role + ":" + pass;
 
     var stats = lastYearStats[rolePass];
-    console.log("rolePass", rolePass, "stats", stats);
 
     if (stats === undefined) {
         console.log("Not found");
         document.getElementById("pass-prob").text = "?";
-    document.getElementById("chance-estimate").classList.add("d-none");
+        document.getElementById("chance-estimate").classList.add("d-none");
         return;
     }
 
     var baseProb = stats["passes"] / stats["registrations"];
-    var numMustHaves = document.getElementById("mustHaves").querySelectorAll("li").length;
-    var prob = baseProb / Math.pow(2,numMustHaves);
-    console.log("prob:", prob);
+    var partners = countMustHaves();
+    var partnerStats = lastYearStats[partnerKey[rolePass]];
+    var partnerProb = partnerStats["passes"] / partnerStats["registrations"];
+
+    var prob = baseProb * Math.pow(partnerProb,partners);
 
     document.getElementById("chance-estimate").classList.remove("d-none");
     document.getElementById("pass-prob").innerHTML = Math.round(prob * 100).toFixed(0) + " %";
@@ -74,3 +98,4 @@ document.getElementById("add-must-have-button").onclick = (ev) => {
 
 document.getElementById("reg-form").onchange = calcPassProbability;
 calcPassProbability();
+manageMustHaveContainerVisibility();

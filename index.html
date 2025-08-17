@@ -88,7 +88,8 @@
           <div id="infoPanels-how" class="accordion-collapse collapse">
             <div class="accordion-body">
               <p>
-                At the end of the registration period, we will distribute the passes we have to people that have registered
+                At the end of the registration period, we will distribute the passes we have to people that have
+                registered
                 according to their role and the type of pass they chose.
               </p>
               <p>
@@ -118,21 +119,22 @@
         <div class="row mb-3">
           <div class="col">
             <div class="form-floating">
-              <input type="string" name="dancerNumber" class="form-control" placeholder="12345" aria-label="Dancer number">
+              <input type="string" name="dancerNumber" class="form-control" placeholder="12345"
+                aria-label="Dancer number">
               <label for="dancerNumber">Dancer-Number</label>
             </div>
           </div>
         </div>
 
-        <div class="row mb-3">
-          <div class="col-6">
+        <div class="row">
+          <div class="col-sm-6 mb-3">
             <div class="form-floating">
               <input type="text" name="firstName" class="form-control" placeholder="First Name" aria-label="First name">
               <label for="firstName">First name</label>
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6 mb-3">
             <div class="form-floating">
               <input type="text" name="lastName" class="form-control" placeholder="Last Name" aria-label="Last name">
               <label for="lastName">Last name</label>
@@ -143,14 +145,15 @@
         <div class="row mb-3">
           <div class="col">
             <div class="form-floating">
-              <input type="email" name="email" class="form-control" placeholder="name@example.com" aria-label="Email address">
+              <input type="email" name="email" class="form-control" placeholder="name@example.com"
+                aria-label="Email address">
               <label for="email">Email address</label>
             </div>
           </div>
         </div>
 
-        <div class="row mb-3">
-          <div class="col-6">
+        <div class="row">
+          <div class="col-sm-6 mb-3">
             <div class="form-floating">
               <select class="form-select" name="role" aria-label="Your role">
                 <option selected disabled>Choose your role</option>
@@ -161,7 +164,7 @@
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-sm-6 mb-3">
             <div class="form-floating">
               <select class="form-select" name="pass" aria-label="Pass">
                 <option selected disabled>Choose your pass</option>
@@ -173,37 +176,48 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col mb-2">
-            <p>
-              List partners here that are absolutely necessary for you to enjoy the event.
-              You will only get a pass if <strong>all</strong> of the listed people get a pass, too.
-              Note, adding people here will <em>significantly</em> reduce your chance to get a pass!
-              You can give both leaders and followers
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mb-2">
-            <div class="input-group" id="add-must-have-group">
-              <input type="text" class="form-control" id="add-must-have-input" placeholder="Partner name"
-                aria-label="Partner name" aria-describedby="must-have-name" required>
-              <button class="btn btn-secondary" type="button" id="add-must-have-button">Add</button>
+        <div class="row mb-3">
+          <div class="col">
+            <div class="rounded border p-3">
+              <div class="row">
+                <div class="col">
+                  <p>
+                    List partners here that are absolutely necessary for you to enjoy the event.
+                    You will only get a pass if <strong>all</strong> of the listed people get a pass, too.
+                    Note, adding people here will <em>significantly</em> reduce your chance to get a pass!
+                    You can give both leaders and followers
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-2">
+                  <div class="input-group" id="add-must-have-group">
+                    <input type="text" class="form-control" id="add-must-have-input" placeholder="Partner name"
+                      aria-label="Partner name" aria-describedby="must-have-name" required>
+                    <button class="btn btn-secondary" type="button" id="add-must-have-button">Add</button>
+                  </div>
+                </div>
+              </div>
+              <div id="must-haves-container" class="row">
+                <div class="col">
+                  <label for="mustHaves" class="form-label">Your must-have partners:</label>
+                  <ul class="list-group" id="mustHaves"></ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row mb-4">
+        <div class="row">
           <div class="col">
-            <label for="mustHaves" class="form-label">Your must-have partners</label>
-            <ul class="list-group" id="mustHaves"></ul>
+            <div class="d-none border rounded p-3 mb-3" id="chance-estimate">
+              Your approximate chance to get a pass according to <em>last years numbers</em>: <output id="pass-prob">?%</output>.<br>
+              We assume your partners have the same pass and are of opposite role.
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <button type="submit" class="btn btn-primary btn-lg">Save</button>
-            <span class="m-3 align-middle d-none" id="chance-estimate">
-              Your approximate chance to get a pass according to <em>last years numbers</em>: <output id="pass-prob">?%</output>
-            </span>
+            <button type="submit" class="btn btn-primary">Save</button>
           </div>
         </div>
       </form>
