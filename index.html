@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./style.css">
   <script defer src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="./main.js"></script>
 </head>
 
 <body>
@@ -110,7 +111,7 @@
     </header>
 
     <main>
-      <form class="m-0 p-0">
+      <form class="m-0 p-0" id="reg-form">
         <div class="row">
           <h1>Registration form</h1>
         </div>
@@ -152,9 +153,9 @@
           <div class="col-6">
             <div class="form-floating">
               <select class="form-select" name="pass" aria-label="Pass">
-                <option selected>Choose your pass</option>
-                <option value="1">Full pass</option>
-                <option value="2">Party pass</option>
+                <option selected disabled>Choose your pass</option>
+                <option value="full">Full pass</option>
+                <option value="party">Party pass</option>
               </select>
               <label for="pass">Pass</label>
             </div>
@@ -163,9 +164,9 @@
           <div class="col-6">
             <div class="form-floating">
               <select class="form-select" name="role" aria-label="Your role">
-                <option selected>Choose your role</option>
-                <option value="1">Leader</option>
-                <option value="2">Follower</option>
+                <option selected disabled>Choose your role</option>
+                <option value="leader">Leader</option>
+                <option value="follower">Follower</option>
               </select>
               <label for="role">Role</label>
             </div>
@@ -184,34 +185,25 @@
         </div>
         <div class="row">
           <div class="col mb-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Partner name"
-                aria-label="Partner name" aria-describedby="must-have-name">
+            <div class="input-group" id="add-must-have-group">
+              <input type="text" class="form-control" id="add-must-have-input" placeholder="Partner name"
+                aria-label="Partner name" aria-describedby="must-have-name" required>
               <button class="btn btn-secondary" type="button" id="add-must-have-button">Add</button>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-4">
           <div class="col">
             <label for="mustHaves" class="form-label">Your must-have partners</label>
-            <ul class="list-group" id="mustHaves">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                John Doe
-                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Jane Smith
-                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
-              </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Peter Jones
-                <button type="button" class="btn btn-outline-danger btn-sm">Remove</button>
-              </li>
-            </ul>
+            <ul class="list-group" id="mustHaves"></ul>
           </div>
-
-          <div class="col-12 mt-4">
+        </div>
+        <div class="row">
+          <div class="col">
             <button type="submit" class="btn btn-primary btn-lg">Save</button>
+            <span class="m-3 align-middle d-none" id="chance-estimate">
+              Your approximate chance to get a pass according to <em>last years numbers</em>: <output id="pass-prob">?%</output>
+            </span>
           </div>
         </div>
       </form>
