@@ -1,5 +1,5 @@
-# passdraw-fe
+# passdraw-demo
 
-Passdraw FE is a simple example front end to show case how
-passdraw is presented to users.
+Passdraw Demo is a simple example front end to show case how
+passdraw could be presented to users.
 
